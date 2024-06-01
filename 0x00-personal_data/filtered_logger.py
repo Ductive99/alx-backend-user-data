@@ -2,6 +2,8 @@
 """Module that defines the filter_datum() function
 """
 from typing import List
+from os import environ
+import mysql.connector
 import logging
 import re
 
@@ -27,6 +29,20 @@ def get_logger() -> logging.Logger:
     logger.propagate = False
     logger.addHandler(stream_handler)
     return logger
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """
+    Returns MYSQLConnection object
+    """
+    usr = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
+    pwd = environ.get("PERSONAL_DATA_DB_PASSWORD", "")
+    host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
+    db = environ.get("PERSONAL_DATA_DB_NAME")
+    return mysql.connector.connection.MySQLConnection(user=usr,
+                                                      password=pwd,
+                                                      host=host,
+                                                      database=db)
 
 
 class RedactingFormatter(logging.Formatter):
