@@ -13,6 +13,8 @@ class Auth:
     """
 
     def __init__(self):
+        """Initializes Auth class
+        """
         self._db = DB()
 
     def register_user(self, email: str, password: str) -> Union[None, User]:
