@@ -4,8 +4,9 @@
 import bcrypt
 from db import DB
 from user import User
-from typing import Union
 from sqlalchemy.orm.exc import NoResultFound
+
+from typing import Union
 
 
 class Auth:
