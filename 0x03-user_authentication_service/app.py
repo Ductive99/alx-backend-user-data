@@ -55,7 +55,7 @@ def logout() -> str:
 
 @app.route('/profile', methods=['GET'])
 def profile() -> str:
-    """Returns the email of the user with the given session_id cookie 
+    """Returns the email of the user with the given session_id cookie
     """
     session_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(session_id)
