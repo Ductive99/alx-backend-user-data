@@ -18,7 +18,7 @@ class Auth:
         """
         self._db = DB()
 
-    def register_user(self, email: str, password: str) -> Union[None, User]:
+    def register_user(self, email: str, password: str) -> User:
         """Registers a new user with a hashed password
         """
         try:
