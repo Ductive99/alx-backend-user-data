@@ -49,6 +49,23 @@ class Auth:
         self._db.update_user(user.id, session_id=new_id)
         return new_id
 
+    def get_user_from_session_id(self, session_id: str) -> Union[User, None]:
+        """Returns the corresponding User for the given session_id, or None
+        """
+        if not session_id:
+            return None
+        try:
+            user = self._db.find_user_by(session_id=session_id)
+        except Exception:
+            return None
+        return user
+
+    def destroy_session(user_id: int) -> None:
+        """Updates the corresponding user's session ID to None
+        """
+        # TO-DO
+        pass
+
 
 def _hash_password(password: str) -> bytes:
     """Returns a hashed version of the given password
