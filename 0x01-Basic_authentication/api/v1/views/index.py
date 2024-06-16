@@ -28,6 +28,13 @@ def stats() -> str:
 
 @app_views.route('/unauthorized', strict_slashes=False, methods=["GET"])
 def unauth() -> str:
-    """Get /api/v1/unauthorized
+    """GET /api/v1/unauthorized
     """
     abort(401)
+
+
+@app_views.route('/forbidden', strict_slashes=False, methods=["GET"])
+def forbidden() -> str:
+    """GET /api/v1/forbidden
+    """
+    abort(403)
