@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Basic Authentication Module
+"""
+Basic Authentication Module
+That defines the BasicAuth class
 """
 from auth import Auth
 
