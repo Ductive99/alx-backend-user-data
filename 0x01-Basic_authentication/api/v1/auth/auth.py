@@ -16,12 +16,12 @@ class Auth:
             return True
 
         # Make paths always end with '/'
-        s_path = path if path.endswith('/') else path + '/'
-        s_ep = [p if p.endswith('/') else p + '/' for p in excluded_paths]
-
-        if s_path in s_ep:
-            return False
-
+        for ep in excluded_paths:
+            if ep.startswith(path) or path.startswith(ep):
+                return False
+            elif ep[-1] == "*":
+                if path.startswith(ep[:-1]):
+                    return False
         return True
 
     def authorization_header(self, request=None) -> str:
