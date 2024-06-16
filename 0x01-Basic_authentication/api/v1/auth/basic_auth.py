@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Basic Auth Module
+"""Basic Authentication Module
 """
 from auth import Auth
 
 
 class BasicAuth(Auth):
-    """BasicAuth Class
+    """BasicAuth Class that inherits from Auth
     """
