@@ -39,7 +39,9 @@ class BasicAuth(Auth):
     def extract_user_credentials(
             self, decoded_base64_authorization_header: str
             ) -> (str, str):
-        """Returns the user email and password from the Base64 decoded value
+        """
+        Returns the user's email and password from the decoded base64 
+        authorization header seperated by a colon 
         """
         if type(decoded_base64_authorization_header) == str:
             if ":" not in decoded_base64_authorization_header:
@@ -52,6 +54,10 @@ class BasicAuth(Auth):
     def user_object_from_credentials(
             self, user_email: str, user_pwd: str
             ) -> TypeVar('User'):
+        """
+        Returns the corresponding User instance based on the
+        given email and password
+        """
         if type(user_email) == type(user_pwd) == str:
             try:
                 users = User.search({'email': user_email})
