@@ -40,8 +40,8 @@ class BasicAuth(Auth):
             self, decoded_base64_authorization_header: str
             ) -> (str, str):
         """
-        Returns the user's email and password from the decoded base64 
-        authorization header seperated by a colon 
+        Returns the user's email and password from the decoded base64
+        authorization header seperated by a colon
         """
         if type(decoded_base64_authorization_header) == str:
             if ":" not in decoded_base64_authorization_header:
