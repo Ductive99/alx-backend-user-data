@@ -3,7 +3,7 @@
 Basic Authentication Module
 That defines the BasicAuth class
 """
-from auth import Auth
+from .auth import Auth
 
 
 class BasicAuth(Auth):
