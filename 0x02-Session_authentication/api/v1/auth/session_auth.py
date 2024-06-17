@@ -2,6 +2,7 @@
 """Session Authentication Module
 """
 from .auth import Auth
+from models.user import User
 import uuid
 
 
@@ -23,3 +24,9 @@ class SessionAuth(Auth):
         """
         if type(session_id) == str:
             return self.user_id_by_session_id.get(session_id)
+
+    def current_user(self, request=None):
+        """Returns a User instance based on a cookie value
+        """
+        user_id = self.user_id_by_session_id(self.session_cookie(request))
+        return User.get(user_id)
